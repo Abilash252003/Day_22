@@ -1,0 +1,43 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:4 Demultiplexer in behavioral modeling//
+
+module demux_1_to_4 (D, S0, S1, Y3, Y2, Y1, Y0);
+
+input  D, S1, S0;
+
+output reg Y3, Y2, Y1, Y0;
+
+always @ (*)
+begin
+  case ({S1,S0})
+  2'b00    :   begin
+                 Y3 = 1'b0;
+                 Y2 = 1'b0;
+                 Y1 = 1'b0;
+                 Y0 = D;
+               end
+  2'b01    :   begin
+                 Y3 = 1'b0;
+                 Y2 = 1'b0;
+                 Y1 = D;
+                 Y0 = 1'b0;
+               end
+  2'b10    :   begin
+                 Y3 = 1'b0;
+                 Y2 = D;
+                 Y1 = 1'b0;
+                 Y0 = 1'b0;
+               end
+  2'b11    :   begin
+                 Y3 = D;
+                 Y2 = 1'b0;
+                 Y1 = 1'b0;
+                 Y0 = 1'b0;
+               end
+  endcase
+end
+endmodule
+
