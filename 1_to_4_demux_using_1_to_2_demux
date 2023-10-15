@@ -1,0 +1,21 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:4 Demultiplexer using 1:2 demux//
+
+module demux_1_to_4 (D, S0, S1, Y3, Y2, Y1, Y0);
+
+input  D, S1, S0;
+
+output Y3, Y2, Y1, Y0;
+
+wire w0, w1;
+
+demux_1_to_2 DEM0 (.D(D),  .S0(S1), .Y0(w0), .Y1(w1));
+
+demux_1_to_2 DEM1 (.D(w0), .S0(S0), .Y0(Y0), .Y1(Y1));
+
+demux_1_to_2 DEM2 (.D(w1), .S0(S0), .Y0(Y2), .Y1(Y3));
+
+endmodule
