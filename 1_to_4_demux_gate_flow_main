@@ -1,0 +1,22 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:4 Demultiplexer in gate or structural level modeling//
+
+module demux_1_to_4 (D, S0, S1, Y3, Y2, Y1, Y0);
+
+input  D, S1, S0;
+
+output Y3, Y2, Y1, Y0;
+
+not n1 (P0, S0);
+not n2 (P1, S1);
+
+and a1 (Y0, P1, P0, D);
+and a2 (Y1, P1, S0, D);
+and a3 (Y2, S1, P0, D);
+and a4 (Y3, S1, S0, D);
+
+endmodule
+
