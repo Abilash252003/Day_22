@@ -1,0 +1,19 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:4 Demultiplexer in data flow modeling//
+
+module demux_1_to_4 (D, S0, S1, Y3, Y2, Y1, Y0);
+
+input  D, S1, S0;
+
+output Y3, Y2, Y1, Y0;
+
+assign {Y3, Y2, Y1, Y0} = S1? (S0 ? {D,1'b0,1'b0,1'b0} : {1'b0, D,1'b0,1'b0})
+                            : (S0 ? {1'b0,1'b0,D,1'b0} : {1'b0,	1'b0,1'b0,D});
+
+endmodule
+
+// we can use Y[3:0]  and assign easily
+// Y[3] = Y3, Y[2] = Y2, Y[1] = Y1, Y[0] = Y0;
