@@ -1,0 +1,38 @@
+//100 days of RTL//
+
+//Abilash P//
+
+//1:4 Demultiplexer test bench//
+
+module demux_1_to_4_tb ();
+
+reg  D, S1, S0;
+wire Y3, Y2, Y1, Y0;
+
+demux_1_to_4 DEM1 (.D(D), .S1(S1), .S0(S0), .Y3(Y3), .Y2(Y2), .Y1(Y1), .Y0(Y0));
+
+integer i;
+
+task select ();
+begin
+  for(i=0; i<4; i=i+1)
+  begin
+     {S1, S0} = i;
+     #20;
+     $display("The select line  S1 = %b-----S0 = %b", S1, S0);
+     $display("The Output value Y3 = %b, Y2 = %b, Y1 = %b, Y0 = %b", Y3, Y2, Y1, Y0);
+  end
+end
+endtask
+  
+initial
+begin
+  D = 1'b1;
+  $display("The input value is D = %b", D);
+  select();
+  D = 1'b0;
+  $display("The input value is D = %b", D);
+  select();
+end
+
+endmodule
